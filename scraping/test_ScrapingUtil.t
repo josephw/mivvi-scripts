@@ -2,9 +2,9 @@
 
 use strict;
 
-use Test::More(tests => 25);
+use Test::More(tests => 28);
 
-use ScrapingUtil qw(trim month2Num withFragment);
+use ScrapingUtil qw(trim month2Num withFragment toDcDateMMDDYY);
 
 is(trim(''), '');
 is(trim(' '), '');
@@ -62,3 +62,8 @@ ok(eq_array([ScrapingUtil::parseAkas("Missing (a.k.a. Mistaken Identity, a.k.a. 
 is(withFragment('http://example.com/'), 'http://example.com/#');
 is(withFragment('http://example.com/#'), 'http://example.com/#');
 is(withFragment('http://example.com/#frag'), 'http://example.com/#frag');
+
+# Another possible date format
+is(toDcDateMMDDYY('01.16.95'), '1995-01-16');
+is(toDcDateMMDDYY('10.04.00'), '2000-10-04');
+is(toDcDateMMDDYY('05.23.01'), '2001-05-23');

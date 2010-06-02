@@ -23,7 +23,7 @@ package ScrapingUtil;
 use strict;
 
 use Exporter 'import';
-our @EXPORT_OK = qw(trim month2Num withFragment);
+our @EXPORT_OK = qw(trim month2Num withFragment toDcDateMMDDYY);
 
 my %m2n;
 my @mn = ('jan', 'feb', 'mar', 'apr', 'may', 'jun',
@@ -40,6 +40,21 @@ sub month2Num($)
        my $n = $m2n{$m} or die "No month number for $m";
 
        return $n;
+}
+
+sub toDcDateMMDDYY($)
+{
+        my $date = shift;
+
+        my ($m, $d, $y) = $date =~ /^(\d{2})\.(\d{2})\.(\d{2})$/ or die "Unable to parse $date as date";
+
+        if ($y < 30) {
+                $y = 2000 + $y;
+        } else {
+                $y = 1900 + $y;
+        }
+
+        return sprintf('%04d-%02d-%02d', $y, $m, $d);
 }
 
 # Normalise whitespace, and remove all leading and trailing blanks
