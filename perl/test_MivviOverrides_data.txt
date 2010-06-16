@@ -1,0 +1,7 @@
+# Comments are ignored
+# This is not N3, for now
+
+<http://www.example.com/old-uri#>	owl:sameAs	<http://www.example.com/#>
+<http://www.example.com/#>	dc:description	Alternate Description
+<http://www.example.com/#>	dc:title	Overridden Title
+<http://www.example.com/#>	dc:date	2000-01-01

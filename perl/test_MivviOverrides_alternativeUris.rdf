@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+        xmlns:dc='http://purl.org/dc/elements/1.1/'
+	xmlns:owl='http://www.w3.org/2002/07/owl#'>
+
+ <rdf:Description rdf:about='tag:kafsemo.org,2005:mtmp/example/1'>
+  <owl:sameAs rdf:resource='http://www.example.com/alt-1/#'/>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='tag:kafsemo.org,2005:mtmp/example/1x2'>
+  <owl:sameAs rdf:resource='http://www.example.com/alt-1/2#'/>
+ </rdf:Description>
+</rdf:RDF>

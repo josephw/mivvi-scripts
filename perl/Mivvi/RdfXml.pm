@@ -38,17 +38,28 @@ our %prefixMap = ($RDF => 'rdf', $MVI => 'mvi', $DC => 'dc', $OWL => 'owl');
 @ISA = ('Exporter');
 @EXPORT = qw(@ISA @EXPORT $RDF $MVI $DC $FOAF $OWL %prefixMap);
 
+my $overrides;
+my $seriesShortName;
+
+sub setOverrides($$)
+{
+	$overrides = shift;
+	$seriesShortName = shift;
+}
+
 use XML::Writer v0.605;
 
 sub newXmlWriter(@)
 {
 	my @forcedDecls = ($RDF, $MVI, $DC);
+	if ($overrides) {
+#		push @forcedDecls, $OWL;
+	}
 	return new XML::Writer(NAMESPACES => 1,
 		PREFIX_MAP => \%prefixMap,
 		FORCED_NS_DECLS => \@forcedDecls,
 		DATA_MODE => 1,
 		DATA_INDENT => 1,
-		CHECK_PRINT => 1,
 		@_
 	);
 }
@@ -65,7 +76,25 @@ sub startDoc($$$$)
 		$w->endTag([$RDF, 'Description']);
 	}
 
+	# Series URI overrides
+	if ($overrides) {
+		foreach ($overrides->getSourcesSameAs($uri)) {
+			if ($_ =~ /^tag:kafsemo.org,2005:mtmp\//) {
+				next;
+			}
+			$w->startTag([$RDF, 'Description'], [$RDF, 'about'] => $_);
+			$w->emptyTag([$OWL, 'sameAs'], [$RDF, 'resource'] => $uri);
+			$w->endTag([$RDF, 'Description']);
+		}
+	}
+
 	$w->startTag([$MVI, 'Series'], [$RDF, 'about'] => $uri, [$DC, 'title'] => $title);
+
+	if ($overrides) {
+		for my $d ($overrides->getDescriptions($uri)) {
+			$w->dataElement([$DC, 'description'], $d);
+		}
+	}
 }
 
 sub startSeasons($)
@@ -88,6 +117,19 @@ sub endSeries($)
 sub endDoc($)
 {
 	my ($w) = @_;
+
+	if ($overrides) {
+		my %publishedOverrides = %{$overrides->getOverriddenPublishedUris()};
+
+		my @mappedUris = keys(%publishedOverrides);
+		if (@mappedUris) {
+			foreach (sort @mappedUris) {
+				$w->startTag([$RDF, 'Description'], [$RDF, 'about'] => $_);
+				$w->emptyTag([$OWL, 'sameAs'], [$RDF, 'resource'] => $publishedOverrides{$_});
+				$w->endTag([$RDF, 'Description']);
+			}
+		}
+	}
 
 	$w->endTag([$RDF, 'RDF']);
 }
@@ -112,6 +154,13 @@ sub writeSeason($$$$@)
 	my @attrs;
 
 	push @attrs, ([$DC, 'title'] => $seasonTitle) if defined($seasonTitle);
+
+	if ($overrides) {
+		my $u = $overrides->bestUriFor($seasonUri, $seriesShortName, $season);
+		if ($u) {
+			$seasonUri = $u;
+		}
+	}
 
 	if ($seasonUri) {
 		push @attrs, ([$RDF, 'about'] => $seasonUri);
@@ -139,16 +188,43 @@ sub writeSeason($$$$@)
 
 		my @tDesc;
 
+		my $uriToUse;
+
+		if ($overrides) {
+			$uriToUse = $overrides->bestUriFor($uri, $seriesShortName, $season, $epSeq);
+			if ($uriToUse) {
+				my $titleForBetterUri = $overrides->getTitle($uriToUse);
+				if ($titleForBetterUri) {
+					$title = $titleForBetterUri;
+				}
+			}
+		}
+
+		$uriToUse ||= $uri;
+
+		if ($overrides) {
+			my $t = $overrides->getTitle($uri);
+			if ($t) {
+				$title = $t;
+			}
+		}
+
 		$epSeq++;
 
 		my $date = $episode->{date};
+		if ($overrides) {
+			my $d = $overrides->getDate($uri);
+			if (defined($d)) {
+				$date = $d;
+			}
+		}
 
 		push @attrs, ([$DC, 'date'] => $date) if $date;
 		push @attrs, ([$MVI, 'episodeNumber'] => $episode->{epNum}) if $episode->{epNum};
 		push @attrs, ([$MVI, 'productionCode'] => $episode->{prodCode}) if $episode->{prodCode};
 
 		unshift @attrs, ([$DC, 'title'] => $title) if defined($title);
-		unshift @attrs, ([$RDF, 'about'] => $uri);
+		unshift @attrs, ([$RDF, 'about'] => $uriToUse);
 
 		if ($episode->{extra}) {
 			push @attrs, @{$episode->{extra}};
@@ -159,6 +235,10 @@ sub writeSeason($$$$@)
 			push @tDesc, @{$episode->{altTitles}};
 		}
 		
+		if ($overrides) {
+			push @tDesc, $overrides->getDescriptions($uri);
+		}
+
 		if (@tDesc) {
 			# Throw away duplicates
 			my %tmp;

@@ -1,0 +1,4 @@
+# Comments are ignored
+# This is not N3, for now
+
+<http://www.example.com/1/1#>	dc:date	
