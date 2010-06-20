@@ -16,6 +16,7 @@ tvcom-seasons:
 	touch $@
 
 fetched/imdb-guests-larry-sanders.html:
+	mkdir -p fetched
 	wget -O $@ 'http://www.imdb.com/title/tt0103466/epcast'
 
 $(MIVVI_DATA_DIR)/epguides/the-larry-sanders-show.rdf:

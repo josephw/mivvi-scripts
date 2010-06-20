@@ -1,0 +1,84 @@
+<http://www.startrek.com/startrek/view/series/ENT/#>	dc:description	Enterprise
+<http://www.tv.com/episode/114106/summary.html#>	dc:description	Mooninites' Revenge
+<http://www.tv.com/episode/360885/summary.html#>	dc:description	Mooninites: Final Mooning
+<http://www.tv.com/episode/360885/summary.html#>	dc:description	Final Mooning
+<http://www.adultswim.com/shows/athf/#>	dc:description	ATHF
+
+<http://www.tv.com/episode/171903/summary.html#>	dc:description	Sensitivity
+
+<http://www.bbc.co.uk/cult/buffy/#>	dc:description	Buffy
+<http://www.bbc.co.uk/comedy/guide/articles/h/harryhilltvburp_999021114.shtml#>	dc:description	TV Burp
+<http://www.hbo.com/carnivale/#>	dc:description	Carnivale
+
+<http://www.tv.com/episode/1327/summary.html#>	dc:description	Tree House of Horror II
+
+<http://www.tv.com/episode/1349/summary.html#>	dc:description	Tree House of Horror III
+<http://www.tv.com/episode/41905/summary.html#>	dc:description	Tall Tales
+<http://www.tv.com/episode/1433/summary.html#>	dc:description	Bart's Road Trip
+<http://www.tv.com/episode/1371/summary.html#>	dc:description	Tree House of Horror IV
+<http://www.tv.com/episode/1488/summary.html#>	dc:description	Margie, May I Sleep With Danger?
+<http://www.bbc.co.uk/comedy/guide/articles/a/alexeisaylesstuf_66602990.shtml#>	dc:description	Stuff
+
+<http://www.tv.com/episode/74944/summary.html#>	dc:description	We'll Always Have Tuesday
+<http://www.fox.com/house/#>	dc:description	House, M.D.
+
+
+<http://www.tv.com/episode/559/summary.html#>	dc:title	Jose Chung's From Outer Space
+<http://www.tv.com/episode/176918/summary.html#>	dc:date	
+<http://www.tv.com/episode/335777/summary.html#>	dc:description	Pilot
+
+# Full times for first broadcast
+<http://www.tv.com/episode/291740/summary.html#>	dc:date	2003-12-08T21:00-05:00
+<http://www.tv.com/episode/291741/summary.html#>	dc:date	2003-12-09T21:00-05:00
+
+# Original BSG dates on Sky
+<http://www.tv.com/episode/307360/summary.html#>	dc:date	2004-10-18T20:00+01:00
+<http://www.tv.com/episode/307362/summary.html#>	dc:date	2004-10-25T20:00+01:00
+<http://www.tv.com/episode/307363/summary.html#>	dc:date	2004-11-01T20:00Z
+<http://www.tv.com/episode/307364/summary.html#>	dc:date	2004-11-08T20:00Z
+<http://www.tv.com/episode/307366/summary.html#>	dc:date	2004-11-15T20:00Z
+<http://www.tv.com/episode/307367/summary.html#>	dc:date	2004-11-22T20:00Z
+<http://www.tv.com/episode/307369/summary.html#>	dc:date	2004-11-29T20:00Z
+<http://www.tv.com/episode/307371/summary.html#>	dc:date	2004-12-06T20:00Z
+<http://www.tv.com/episode/307372/summary.html#>	dc:date	2004-12-13T20:00Z
+<http://www.tv.com/episode/307373/summary.html#>	dc:date	2005-01-03T20:00Z
+<http://www.tv.com/episode/381067/summary.html#>	dc:date	2005-01-10T20:00Z
+<http://www.tv.com/episode/307375/summary.html#>	dc:date	2005-01-17T20:00Z
+<http://www.tv.com/episode/307376/summary.html#>	dc:date	2005-01-24T20:00Z
+
+<http://en.wikipedia.org/wiki/The_Norm_Show#>	dc:description	Norm
+
+<http://www.tv.com/episode/104264/summary.html#>	dc:description	Mooninites
+<http://www.tv.com/episode/143882/summary.html#>	dc:description	MC Pee Pants
+<http://www.tv.com/episode/264548/summary.html#>	dc:description	Super Sir Loin
+<http://www.tv.com/episode/264541/summary.html#>	dc:description	Meatzone
+<http://www.tv.com/episode/264543/summary.html#>	dc:description	Total Re-Carl
+<http://www.tv.com/episode/360885/summary.html#>	dc:description	Moon Master
+<http://www.tv.com/episode/408011/summary.html#>	dc:description	Dirt Foot
+
+<http://www.tv.com/episode/633141/summary.html#>	dc:description	Harboring Resentment
+
+<http://www.adultswim.com/shows/timanderic/#>	dc:description	Tim and Eric Awesome Show
+
+<http://www.tv.com/episode/2455/summary.html#>	dc:description	Melvins (2)
+<http://www.tv.com/episode/2472/summary.html#>	dc:description	Fingerbang
+<http://www.tv.com/episode/2446/summary.html#>	dc:description	Underpants Gnomes
+<http://www.tv.com/episode/2450/summary.html#>	dc:description	Chef's Mama
+<http://www.tv.com/episode/2464/summary.html#>	dc:description	The Brown Noise
+<http://www.tv.com/episode/99590/summary.html#>	dc:description	The Ginger Device
+
+# Heroes titles include season reference; we don't want it
+<http://www.tv.com/episode/670397/summary.html#>	dc:title	In His Own Image
+<http://www.tv.com/episode/1123663/summary.html#>	dc:title	Four Months Later...
+<http://www.tv.com/episode/1181337/summary.html#>	dc:title	The Second Coming
+<http://www.tv.com/episode/1243496/summary.html#>	dc:title	A Clear and Present Danger
+<http://www.tv.com/episode/1288614/summary.html#>	dc:title	Orientation
+
+<http://www.hbo.com/carnivale/#>	owl:sameAs	<http://en.wikipedia.org/wiki/Carniv%C3%A0le#>
+<http://www.hbo.com/city/#>	owl:sameAs	<http://www.hbo.com/sex-and-the-city/#>
+<http://www.hbo.com/deadwood/#>	owl:sameAs	<http://en.wikipedia.org/wiki/Deadwood_(TV_series)#>
+<http://www.hbo.com/larrydavid/#>	owl:sameAs	<http://www.hbo.com/curb-your-enthusiasm/#>
+<http://www.hbo.com/rome/#>	owl:sameAs	<http://en.wikipedia.org/wiki/Rome_%28TV_series%29#>
+<http://www.hbo.com/sixfeetunder/#>	owl:sameAs	<http://www.hbo.com/six-feet-under/#>
+<http://www.hbo.com/sopranos/#>	owl:sameAs	<http://www.hbo.com/the-sopranos/#>
+<http://www.hbo.com/thewire/#>	owl:sameAs	<http://www.hbo.com/the-wire/#>

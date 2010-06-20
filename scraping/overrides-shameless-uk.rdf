@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:dc='http://purl.org/dc/elements/1.1/'
+	xmlns:owl='http://www.w3.org/2002/07/owl#'>
+
+ <rdf:Description rdf:about='tag:kafsemo.org,2005:mtmp/shameless/1'>
+  <owl:sameAs rdf:resource='http://www.channel4.com/entertainment/tv/microsites/S/shameless/episode.html#'/>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='tag:kafsemo.org,2005:mtmp/shameless/2'>
+  <owl:sameAs rdf:resource='http://www.channel4.com/entertainment/tv/microsites/S/shameless/two.html#'/>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='tag:kafsemo.org,2005:mtmp/shameless/3'>
+  <owl:sameAs rdf:resource='http://www.channel4.com/entertainment/tv/microsites/S/shameless/three.html#'/>
+ </rdf:Description>
+
+ <rdf:Description rdf:about='http://www.tv.com/episode/348375/summary.html#'>
+  <owl:sameAs rdf:resource='http://www.channel4.com/entertainment/tv/microsites/S/shameless/xmas.html#'/>
+ </rdf:Description>
+
+</rdf:RDF>
