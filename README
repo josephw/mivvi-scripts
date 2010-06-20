@@ -1,0 +1,11 @@
+Mivvi Scripts
+=============
+
+To fetch and scrape web pages to create Mivvi data:
+
+ cd scraping/
+ make -k
+
+An example of generating an RDF/XML Mivvi file:
+
+ perl/mivvi-file-sample.pl
