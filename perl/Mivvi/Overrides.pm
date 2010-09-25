@@ -192,7 +192,7 @@ sub bestUriFor($$$$;$)
  # Is there a temporary URI for this episode that specifies a better alternative?
  my $tempUri = $self->tempUriFor($series, $season, $episode);
  $sa = $model->target(RDF::Redland::Node->new(RDF::Redland::URI->new($tempUri)), $predOwlSameAs);
- if($sa) {
+ if($sa && $sa->uri) {
   my $u = $sa->uri->as_string;
   if ($origUri && $self->{PUBLISHED}->{$origUri}) {
    $self->{PUBLISHED_OVERRIDES}->{$origUri} = $u;
@@ -207,7 +207,7 @@ sub getOverriddenPublishedUris($)
 {
  my $self = shift;
 
- return $self->{PUBLISHED_OVERRIDES};
+ return $self->{PUBLISHED_OVERRIDES} || {};
 }
 
 1;

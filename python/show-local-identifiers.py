@@ -47,12 +47,16 @@ def mtmp(series,part=''):
 
 idxPrefix = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#_'
 
+def appendUnlessBlank(model, subj, pred, obj):
+  if not(obj.is_blank()):
+    model.append(RDF.Statement(subj, pred, obj))
+
 def produceSeasonStatements(model, name, season, target):
   snum = model.get_target(season, RDF.Node(Mivvi.MVI('seasonNumber')))
   if snum == None:
     return
   snum = str(snum.literal_value['string'])
-  target.append(RDF.Statement(mtmp(name, snum), Mivvi.OWL('sameAs'), season))
+  appendUnlessBlank(target, mtmp(name, snum), Mivvi.OWL('sameAs'), season)
 
   eps = model.get_target(season, Mivvi.MVI('episodes'))
   for s in model.find_statements(RDF.Statement(eps, None, None)):
@@ -60,7 +64,7 @@ def produceSeasonStatements(model, name, season, target):
     if ps.startswith(idxPrefix):
       pnum = int(ps[len(idxPrefix):])
       if model.contains_statement(RDF.Statement(s.object, predType, typeEpisode)):
-        target.append(RDF.Statement(mtmp(name, snum + 'x' + str(pnum)), Mivvi.OWL('sameAs'), s.object))
+        appendUnlessBlank(target, mtmp(name, snum + 'x' + str(pnum)), Mivvi.OWL('sameAs'), s.object)
 
 def produceStatements(model, name, series, target):
   target.append(RDF.Statement(mtmp(name), Mivvi.OWL('sameAs'), series))

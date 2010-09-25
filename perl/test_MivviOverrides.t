@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More(tests => 33);
+use Test::More(tests => 34);
 use Mivvi::Overrides;
 
 my ($o, @l);
@@ -85,6 +85,7 @@ is($o->getDate('http://www.example.com/1/1#'), '', 'Blank dates should be passed
 
 # Store overrides of published URIs
 $o = Mivvi::Overrides->new();
+ok($o->getOverriddenPublishedUris(), 'getOverriddenPublishedUris is never undef');
 $o->loadRdfXml('test_MivviOverrides_overriddenPublishedUris.rdf');
 $o->loadPublishedUris('test_MivviOverrides_publishedOriginalUris.txt');
 
