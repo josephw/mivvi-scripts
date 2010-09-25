@@ -82,3 +82,6 @@
 <http://www.hbo.com/sixfeetunder/#>	owl:sameAs	<http://www.hbo.com/six-feet-under/#>
 <http://www.hbo.com/sopranos/#>	owl:sameAs	<http://www.hbo.com/the-sopranos/#>
 <http://www.hbo.com/thewire/#>	owl:sameAs	<http://www.hbo.com/the-wire/#>
+
+<http://www.tv.com/episode/172175/summary.html#>	dc:title	The Garden Weasel
+<http://www.tv.com/episode/172175/summary.html#>	dc:description	What Have You Done for Me Lately?
